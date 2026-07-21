@@ -1,1 +1,16 @@
+// Глобальные стили — единственная точка, где подключаются файлы,
+// генерирующие CSS. Порядок важен: сначала сброс, затем токены.
+
 @use './styles/reset';
+@use './styles/tokens';
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+}

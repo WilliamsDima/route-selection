@@ -1,0 +1,20 @@
+@use 'sass:map';
+
+$breakpoints: (
+  'sm': 480px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+);
+
+@mixin respond-to($breakpoint) {
+  $value: map.get($breakpoints, $breakpoint);
+
+  @if $value == null {
+    @error "Неизвестный брейкпоинт «#{$breakpoint}». Доступные: #{map.keys($breakpoints)}.";
+  }
+
+  @media (min-width: $value) {
+    @content;
+  }
+}

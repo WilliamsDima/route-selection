@@ -1,0 +1,12 @@
+@use 'sass:math';
+
+@function rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
+}
+
+@function fluid($min-px, $max-px, $min-vw: 480, $max-vw: 1280) {
+  $slope: math.div($max-px - $min-px, $max-vw - $min-vw);
+  $intercept: $min-px - $slope * $min-vw;
+
+  @return clamp(#{rem($min-px)}, #{rem($intercept)} + #{$slope * 100}vw, #{rem($max-px)});
+}
