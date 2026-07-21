@@ -17,7 +17,7 @@ export class Loader implements AfterViewInit, OnDestroy {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'animations/paws.json',
+      path: 'animations/loder.json',
     });
   }
 

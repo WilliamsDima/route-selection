@@ -1,6 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Loader } from './shared/components/loader/loader';
+import { LoaderService } from './core/services/loader';
+import { AppBootstrap } from './core/services/app-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,11 @@ import { Loader } from './shared/components/loader/loader';
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App {
-  protected readonly title = signal('route-selection');
+export class App implements OnInit {
+  protected readonly loader = inject(LoaderService);
+  private readonly bootstrap = inject(AppBootstrap);
+
+  ngOnInit(): void {
+    this.bootstrap.init();
+  }
 }
