@@ -1,0 +1,21 @@
+@use 'abstracts' as *;
+
+:host {
+  display: contents;
+}
+
+.loader {
+  @include fullscreen-overlay(1000);
+  @include flex-center;
+
+  background: var(--color-bg);
+
+  &__animation {
+    width: min(60vw, rem(280));
+    aspect-ratio: 1;
+
+    @include respond-to('md') {
+      width: rem(320);
+    }
+  }
+}

@@ -32,6 +32,9 @@
                 "src/styles"
               ]
             },
+            "allowedCommonJsDependencies": [
+              "lottie-web"
+            ],
             "assets": [
               {
                 "glob": "**/*",
@@ -47,8 +50,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "800kB",
+                  "maximumError": "1.5MB"
                 },
                 {
                   "type": "anyComponentStyle",
