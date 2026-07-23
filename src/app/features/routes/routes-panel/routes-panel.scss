@@ -1,0 +1,105 @@
+@use 'abstracts' as *;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    font-size: rem(15);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  &__chevron {
+    transition: transform var(--transition-base);
+  }
+
+  // Контейнер-аккордеон: анимируем строку грида от 0fr к 1fr.
+  // Это позволяет плавно раскрывать высоту от 0 до auto.
+  &__collapse {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--transition-base);
+  }
+
+  &__collapse-inner {
+    overflow: hidden;
+    min-height: 0; // обязательно, иначе контент не сожмётся до 0
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: 0 var(--space-lg) var(--space-lg);
+  }
+
+  // Открытое состояние: раскрываем грид и переворачиваем шеврон
+  &--open &__collapse {
+    grid-template-rows: 1fr;
+  }
+
+  &--open &__chevron {
+    transform: rotate(180deg);
+  }
+
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  &__sort-arrow {
+    font-weight: 800;
+    color: var(--color-accent);
+  }
+
+  // Область прокрутки со стилизованным ползунком
+  &__scroll {
+    max-height: rem(320);
+    overflow-y: auto;
+    padding-right: var(--space-xs);
+
+    // Firefox
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) transparent;
+
+    // WebKit (Chrome, Edge, Safari)
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-border-strong);
+      border-radius: var(--radius-full);
+
+      &:hover {
+        background: var(--color-accent);
+      }
+    }
+  }
+}

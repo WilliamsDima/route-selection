@@ -1,0 +1,31 @@
+<section class="panel" [class.panel--open]="expanded()">
+  <button class="panel__toggle" type="button" (click)="toggle()" [attr.aria-expanded]="expanded()">
+    <span>Маршруты · {{ count() }}</span>
+    <span class="panel__chevron">▾</span>
+  </button>
+
+  <div class="panel__collapse">
+    <div class="panel__collapse-inner">
+      <div class="panel__body">
+        <app-search-input placeholder="Поиск маршрута…" (search)="onSearch($event)" />
+
+        <div class="panel__filters">
+          @for (btn of typeButtons; track btn.value) {
+            <app-chip [active]="activeType() === btn.value" (click)="selectType(btn.value)">
+              {{ btn.label }}
+            </app-chip>
+          }
+        </div>
+
+        <app-chip (click)="toggleSort()">
+          По расстоянию
+          <span class="panel__sort-arrow">{{ sortDir() === 'asc' ? '↑' : '↓' }}</span>
+        </app-chip>
+
+        <div class="panel__scroll">
+          <app-route-list [routes]="routes()" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

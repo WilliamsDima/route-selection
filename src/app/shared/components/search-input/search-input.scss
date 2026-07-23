@@ -1,0 +1,25 @@
+@use 'abstracts' as *;
+
+:host {
+  display: block;
+}
+
+.search {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: rem(14);
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+}
