@@ -5,5 +5,103 @@
     "gpxFile": "routes/1.gpx",
     "distKm": 60,
     "type": "short"
+  },
+  {
+    "id": 2,
+    "name": "ПАТП - Октябрьский",
+    "gpxFile": "routes/2.gpx",
+    "distKm": 25,
+    "type": "short"
+  },
+  {
+    "id": 3,
+    "name": "ПАТП - Чудиново",
+    "gpxFile": "routes/3.gpx",
+    "distKm": 25,
+    "type": "short"
+  },
+  {
+    "id": 4,
+    "name": "ТДР",
+    "gpxFile": "routes/4.gpx",
+    "distKm": 30,
+    "type": "short"
+  },
+  {
+    "id": 5,
+    "name": "ПАТП - Волково",
+    "gpxFile": "routes/5.gpx",
+    "distKm": 17,
+    "type": "short"
+  },
+  {
+    "id": 6,
+    "name": "ПАТП - Восильково",
+    "gpxFile": "routes/6.gpx",
+    "distKm": 25,
+    "type": "short"
+  },
+  {
+    "id": 7,
+    "name": "Арефино",
+    "gpxFile": "routes/7.gpx",
+    "distKm": 75,
+    "type": "short"
+  },
+  {
+    "id": 8,
+    "name": "Пошехонье",
+    "gpxFile": "routes/8.gpx",
+    "distKm": 140,
+    "type": "big"
+  },
+  {
+    "id": 9,
+    "name": "Полянка",
+    "gpxFile": "routes/9.gpx",
+    "distKm": 45,
+    "type": "short"
+  },
+  {
+    "id": 10,
+    "name": "Каменники",
+    "gpxFile": "routes/10.gpx",
+    "distKm": 41,
+    "type": "short"
+  },
+  {
+    "id": 11,
+    "name": "Тихменево",
+    "gpxFile": "routes/11.gpx",
+    "distKm": 33,
+    "type": "short"
+  },
+  {
+    "id": 12,
+    "name": "Глебово",
+    "gpxFile": "routes/12.gpx",
+    "distKm": 40,
+    "type": "short"
+  },
+  {
+    "id": 13,
+    "name": "Коприно",
+    "gpxFile": "routes/13.gpx",
+    "distKm": 64,
+    "type": "short"
+  },
+  {
+    "id": 14,
+    "name": "Большое село - короткий",
+    "gpxFile": "routes/14.gpx",
+    "distKm": 125,
+    "type": "long"
+  },
+  {
+    "id": 15,
+    "name": "Большое село - через лом",
+    "gpxFile": "routes/15.gpx",
+    "distKm": 135,
+    "type": "long"
   }
 ]
