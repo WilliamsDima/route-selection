@@ -1,0 +1,19 @@
+@use 'abstracts' as *;
+
+:host {
+  display: block;
+}
+
+.wheel {
+  @include flex-center;
+
+  width: min(80vw, rem(320));
+  aspect-ratio: 1;
+  margin: 0 auto;
+
+  border: 2px dashed var(--color-border-strong);
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  font-size: rem(14);
+  text-align: center;
+}
