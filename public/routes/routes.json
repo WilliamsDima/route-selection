@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "name": "Круг через Кобостово",
+    "gpxFile": "routes/1.gpx",
+    "distKm": 60,
+    "type": "short"
+  }
+]
