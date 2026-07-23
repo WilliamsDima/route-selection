@@ -1,0 +1,7 @@
+<div class="route-list">
+  @for (route of routes(); track route.id) {
+    <app-route-card [route]="route" />
+  } @empty {
+    <p class="route-list__empty">Маршрутов пока нет</p>
+  }
+</div>

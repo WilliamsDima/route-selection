@@ -1,0 +1,13 @@
+<article class="card">
+  <header class="card__header">
+    <h3 class="card__title">{{ route().name }}</h3>
+    <span class="card__badge" [class]="'card__badge--' + route().type">
+      {{ typeLabel() }}
+    </span>
+  </header>
+
+  <p class="card__dist">
+    <span class="card__dist-value">{{ route().distKm }}</span>
+    <span class="card__dist-unit">км</span>
+  </p>
+</article>

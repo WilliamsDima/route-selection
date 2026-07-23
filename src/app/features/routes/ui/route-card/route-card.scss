@@ -1,0 +1,92 @@
+@use 'abstracts' as *;
+
+:host {
+  display: block;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  height: 100%;
+  padding: var(--space-lg);
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-border-strong);
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  &__title {
+    margin: 0;
+    font-size: fluid(17, 20);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--color-text);
+  }
+
+  &__badge {
+    flex-shrink: 0;
+    padding: 0.25rem 0.7rem;
+    border-radius: var(--radius-full);
+    font-size: rem(12);
+    font-weight: 600;
+    white-space: nowrap;
+
+    // Тип «короткий» — зелёный
+    &--short {
+      color: var(--color-easy);
+      background: var(--color-easy-soft);
+    }
+
+    // Тип «длинный» — янтарный
+    &--long {
+      color: var(--color-medium);
+      background: var(--color-medium-soft);
+    }
+
+    // Тип «большой» — красный
+    &--big {
+      color: var(--color-hard);
+      background: var(--color-hard-soft);
+    }
+  }
+
+  &__dist {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-xs);
+    margin: 0;
+    margin-top: auto;
+  }
+
+  &__dist-value {
+    font-size: fluid(24, 32);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--color-accent);
+  }
+
+  &__dist-unit {
+    font-size: rem(14);
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+}
