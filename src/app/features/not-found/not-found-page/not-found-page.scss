@@ -1,0 +1,49 @@
+@use 'abstracts' as *;
+
+:host {
+  display: contents;
+}
+
+.page {
+  @include fullscreen-overlay(1000);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+
+  background: var(--color-bg);
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.code {
+  margin: 0;
+  font-size: fluid(96, 200);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  filter: drop-shadow(0 8px 24px rgb(22 163 74 / 25%));
+}
+
+.animation {
+  width: min(60vw, rem(280));
+  aspect-ratio: 1;
+
+  @include respond-to('md') {
+    width: rem(420);
+  }
+}
+
+.message {
+  margin: 0;
+  font-size: fluid(15, 18);
+  color: var(--color-text-muted);
+}
