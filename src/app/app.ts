@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Loader } from './shared/components/loader/loader';
-import { LoaderService } from './core/services/loader';
-import { AppBootstrap } from './core/services/app-bootstrap';
+import { AppBootstrap } from './core/services/app-bootstrap/app-bootstrap';
+import { LoaderService } from './core/services/loader/loader';
 
 @Component({
   selector: 'app-root',

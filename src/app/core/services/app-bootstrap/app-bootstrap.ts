@@ -1,5 +1,5 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { LoaderService } from './loader';
+import { LoaderService } from '../loader/loader';
 
 @Injectable({
   providedIn: 'root',
