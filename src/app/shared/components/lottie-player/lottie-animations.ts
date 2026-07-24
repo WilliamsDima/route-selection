@@ -1,5 +1,5 @@
 export const LOTTIE_ANIMATIONS = {
-  loader: 'loder.json',
+  loader: 'loader.json',
   notFound: '404.json',
   paws: 'paws.json',
   congratulations: 'congratulations.json',
