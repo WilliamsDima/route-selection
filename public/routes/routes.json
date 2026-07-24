@@ -10,14 +10,14 @@
     "id": 2,
     "name": "ПАТП - Октябрьский",
     "gpxFile": "routes/2.gpx",
-    "distKm": 25,
+    "distKm": 50,
     "type": "short"
   },
   {
     "id": 3,
     "name": "ПАТП - Чудиново",
     "gpxFile": "routes/3.gpx",
-    "distKm": 25,
+    "distKm": 50,
     "type": "short"
   },
   {
@@ -29,16 +29,16 @@
   },
   {
     "id": 5,
-    "name": "ПАТП - Волково",
+    "name": "Волково",
     "gpxFile": "routes/5.gpx",
-    "distKm": 17,
+    "distKm": 34,
     "type": "short"
   },
   {
     "id": 6,
-    "name": "ПАТП - Восильково",
+    "name": "Восильково",
     "gpxFile": "routes/6.gpx",
-    "distKm": 25,
+    "distKm": 50,
     "type": "short"
   },
   {
@@ -102,6 +102,153 @@
     "name": "Большое село - через лом",
     "gpxFile": "routes/15.gpx",
     "distKm": 135,
+    "type": "long"
+  },
+  {
+    "id": 16,
+    "name": "Мышкин",
+    "gpxFile": "routes/16.gpx",
+    "distKm": 100,
+    "type": "long"
+  },
+  {
+    "id": 17,
+    "name": "Углич",
+    "gpxFile": "routes/17.gpx",
+    "distKm": 160,
+    "type": "big"
+  },
+  {
+    "id": 18,
+    "name": "Тутаев",
+    "gpxFile": "routes/18.gpx",
+    "distKm": 110,
+    "type": "long"
+  },
+  {
+    "id": 19,
+    "name": "Брейтово в одну сторону",
+    "gpxFile": "routes/19.gpx",
+    "distKm": 100,
+    "type": "long"
+  },
+  {
+    "id": 20,
+    "name": "Брейтово туда-обратно",
+    "gpxFile": "routes/19.gpx",
+    "distKm": 200,
+    "type": "big"
+  },
+  {
+    "id": 21,
+    "name": "Вятское",
+    "gpxFile": "routes/21.gpx",
+    "distKm": 100,
+    "type": "long"
+  },
+  {
+    "id": 22,
+    "name": "ЯР - Бройлер",
+    "gpxFile": "routes/22.gpx",
+    "distKm": 50,
+    "type": "short"
+  },
+  {
+    "id": 23,
+    "name": "Судовурфь",
+    "gpxFile": "routes/23.gpx",
+    "distKm": 25,
+    "type": "short"
+  },
+  {
+    "id": 24,
+    "name": "Шашково",
+    "gpxFile": "routes/24.gpx",
+    "distKm": 60,
+    "type": "short"
+  },
+  {
+    "id": 25,
+    "name": "Спаское",
+    "gpxFile": "routes/25.gpx",
+    "distKm": 30,
+    "type": "short"
+  },
+  {
+    "id": 26,
+    "name": "Ростов-Калязин-Рыба",
+    "gpxFile": "routes/26.gpx",
+    "distKm": 260,
+    "type": "big"
+  },
+  {
+    "id": 27,
+    "name": "Некоуз",
+    "gpxFile": "routes/27.gpx",
+    "distKm": 100,
+    "type": "long"
+  },
+  {
+    "id": 28,
+    "name": "Яр-Данилов-Пошехонье-Рыба",
+    "gpxFile": "routes/28.gpx",
+    "distKm": 220,
+    "type": "big"
+  },
+  {
+    "id": 29,
+    "name": "Ермаково",
+    "gpxFile": "routes/29.gpx",
+    "distKm": 32,
+    "type": "short"
+  },
+  {
+    "id": 30,
+    "name": "Песочное",
+    "gpxFile": "routes/30.gpx",
+    "distKm": 60,
+    "type": "short"
+  },
+  {
+    "id": 31,
+    "name": "Дёмино",
+    "gpxFile": "routes/31.gpx",
+    "distKm": 33,
+    "type": "short"
+  },
+  {
+    "id": 32,
+    "name": "Борок",
+    "gpxFile": "routes/32.gpx",
+    "distKm": 100,
+    "type": "long"
+  },
+  {
+    "id": 33,
+    "name": "Рожнов",
+    "gpxFile": "routes/33.gpx",
+    "distKm": 60,
+    "type": "short"
+  },
+  {
+    "id": 34,
+    "name": "Ларионово",
+    "gpxFile": "routes/34.gpx",
+    "distKm": 66,
+    "type": "short"
+  },
+  {
+    "id": 35,
+    "name": "Яр-Большое село-Рыб",
+    "gpxFile": "routes/35.gpx",
+    "distKm": 125,
+    "type": "long"
+  },
+  {
+    "id": 36,
+    "name": "Круг Лом",
+    "gpxFile": "routes/36.gpx",
+    "distKm": 100,
     "type": "long"
   }
 ]
