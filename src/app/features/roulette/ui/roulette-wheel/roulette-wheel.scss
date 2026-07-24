@@ -69,6 +69,18 @@
     box-shadow: var(--shadow-md);
   }
 
+  &__congrats {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+
+    width: 100%;
+    aspect-ratio: 1;
+    pointer-events: none;
+  }
+
   &__caption {
     position: absolute;
     bottom: 0;

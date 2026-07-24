@@ -5,6 +5,7 @@ import { Button } from '../../../../shared/components/button/button';
 import { RouletteSegment } from '../roulette-segment/roulette-segment';
 import { RouletteHub } from '../roulette-hub/roulette-hub';
 import { RouteMap } from '../route-map/route-map';
+import { LottiePlayer } from '../../../../shared/components/lottie-player/lottie-player';
 import {
   ACTIVE_SCALE,
   DEFAULT_SPIN_DURATION_MS,
@@ -19,7 +20,7 @@ import {
 
 @Component({
   selector: 'app-roulette-wheel',
-  imports: [Button, RouletteSegment, RouletteHub, RouteMap],
+  imports: [Button, RouletteSegment, RouletteHub, RouteMap, LottiePlayer],
   templateUrl: './roulette-wheel.html',
   styleUrl: './roulette-wheel.scss',
 })
@@ -33,6 +34,9 @@ export class RouletteWheel implements OnDestroy {
   protected readonly selected = this.facade.selectedRoute;
   protected readonly activeIndex = signal(-1);
   protected readonly spinDurationMs = signal(DEFAULT_SPIN_DURATION_MS);
+  protected readonly showCongrats = signal(false);
+
+  private lastCelebratedRouteId: number | null = null;
 
   protected readonly scale = ACTIVE_SCALE;
   protected readonly minSpinDurationSec = MIN_SPIN_DURATION_MS / 1000;
@@ -66,7 +70,20 @@ export class RouletteWheel implements OnDestroy {
 
       const idx = this.routes().findIndex((r) => r.id === route.id);
       if (idx !== -1) this.activeIndex.set(idx);
+
+      if (route.id !== this.lastCelebratedRouteId) {
+        this.lastCelebratedRouteId = route.id;
+        this.showCongrats.set(true);
+      }
     });
+
+    effect(() => {
+      if (this.spinning()) this.showCongrats.set(false);
+    });
+  }
+
+  onCongratsComplete(): void {
+    this.showCongrats.set(false);
   }
 
   onDurationInput(event: Event): void {

@@ -27,6 +27,15 @@
         <app-roulette-hub [spinning]="spinning()" [hasRoutes]="routes().length > 0" />
       }
     </div>
+
+    @if (showCongrats()) {
+      <app-lottie-player
+        name="congratulations"
+        [loop]="false"
+        class="roulette__congrats"
+        (complete)="onCongratsComplete()"
+      />
+    }
   </div>
 
   <label class="roulette__duration">

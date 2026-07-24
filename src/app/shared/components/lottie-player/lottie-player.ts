@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, ElementRef, input, OnDestroy, viewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  input,
+  OnDestroy,
+  output,
+  viewChild,
+} from '@angular/core';
 import { LOTTIE_ANIMATIONS, LottieAnimation } from './lottie-animations';
 import Lottie, { AnimationItem } from 'lottie-web';
 
@@ -13,6 +21,8 @@ export class LottiePlayer implements AfterViewInit, OnDestroy {
   readonly loop = input(true);
   readonly autoplay = input(true);
 
+  readonly complete = output<void>();
+
   readonly animationHost = viewChild.required<ElementRef<HTMLDivElement>>('animationHost');
   private animation?: AnimationItem;
 
@@ -24,6 +34,7 @@ export class LottiePlayer implements AfterViewInit, OnDestroy {
       autoplay: this.autoplay(),
       path: `animations/${LOTTIE_ANIMATIONS[this.name()]}`,
     });
+    this.animation.addEventListener('complete', () => this.complete.emit());
   }
 
   ngOnDestroy(): void {
