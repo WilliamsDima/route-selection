@@ -81,6 +81,22 @@
     pointer-events: none;
   }
 
+  &__sofa {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: rem(48);
+
+    @include respond-to('md') {
+      font-size: rem(72);
+    }
+  }
+
   &__caption {
     position: absolute;
     bottom: 0;

@@ -18,10 +18,14 @@
 
     <div class="roulette__hub">
       @if (selected(); as route) {
-        <app-route-map [gpxFile]="route.gpxFile" />
+        @if (route.gpxFile) {
+          <app-route-map [gpxFile]="route.gpxFile" />
+        } @else {
+          <div class="roulette__sofa">🛋️</div>
+        }
         <div class="roulette__caption">
           <span class="roulette__caption-name">{{ route.name }}</span>
-          <span class="roulette__caption-dist">{{ route.distKm }} км</span>
+          <span class="roulette__caption-dist">{{ route.gpxFile ? route.distKm + ' км' : 'не судьба' }}</span>
         </div>
       } @else {
         <app-roulette-hub [spinning]="spinning()" [hasRoutes]="routes().length > 0" />

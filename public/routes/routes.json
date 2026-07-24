@@ -250,5 +250,12 @@
     "gpxFile": "routes/36.gpx",
     "distKm": 100,
     "type": "long"
+  },
+  {
+    "id": 37,
+    "name": "Диван 🛋️",
+    "gpxFile": "",
+    "distKm": 0,
+    "type": "short"
   }
 ]
