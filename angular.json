@@ -33,7 +33,8 @@
               ]
             },
             "allowedCommonJsDependencies": [
-              "lottie-web"
+              "lottie-web",
+              "leaflet"
             ],
             "assets": [
               {
@@ -42,6 +43,7 @@
               }
             ],
             "styles": [
+              "node_modules/leaflet/dist/leaflet.css",
               "src/styles.scss"
             ]
           },

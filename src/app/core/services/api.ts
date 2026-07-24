@@ -12,6 +12,10 @@ export class ApiService {
     return this.http.get<T>(this.url(path));
   }
 
+  getText(path: string): Observable<string> {
+    return this.http.get(this.url(path), { responseType: 'text' });
+  }
+
   post<T>(path: string, body: unknown): Observable<T> {
     return this.http.post<T>(this.url(path), body);
   }

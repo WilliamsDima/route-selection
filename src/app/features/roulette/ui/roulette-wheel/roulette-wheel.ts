@@ -3,6 +3,7 @@ import { BikeRoute } from '../../../../core/models/bike-route';
 import { Button } from '../../../../shared/components/button/button';
 import { RouletteSegment } from '../roulette-segment/roulette-segment';
 import { RouletteHub } from '../roulette-hub/roulette-hub';
+import { RouteMap } from '../route-map/route-map';
 import {
   ACTIVE_SCALE,
   SPIN_DURATION_MS,
@@ -14,7 +15,7 @@ import {
 
 @Component({
   selector: 'app-roulette-wheel',
-  imports: [Button, RouletteSegment, RouletteHub],
+  imports: [Button, RouletteSegment, RouletteHub, RouteMap],
   templateUrl: './roulette-wheel.html',
   styleUrl: './roulette-wheel.scss',
 })
