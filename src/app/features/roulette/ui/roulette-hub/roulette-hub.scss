@@ -40,6 +40,12 @@
   color: var(--color-text-muted);
 }
 
+.hub-cats {
+  display: block;
+  width: 70%;
+  aspect-ratio: 1;
+}
+
 @keyframes hub-pop {
   from {
     transform: scale(0.1);

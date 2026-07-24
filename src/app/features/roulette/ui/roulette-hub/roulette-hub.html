@@ -4,7 +4,11 @@
     <span class="result__dist">{{ r.distKm }} км</span>
   </div>
 } @else if (hasRoutes()) {
-  <span class="hint">{{ spinning() ? '…' : 'Крутите!' }}</span>
+  @if (spinning()) {
+    <app-lottie-player name="cats" class="hub-cats" />
+  } @else {
+    <span class="hint">Крутите!</span>
+  }
 } @else {
   <span class="hint">Нет маршрутов</span>
 }

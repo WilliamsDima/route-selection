@@ -1,9 +1,10 @@
 import { Component, input } from '@angular/core';
 import { BikeRoute } from '../../../../core/models/bike-route';
+import { LottiePlayer } from '../../../../shared/components/lottie-player/lottie-player';
 
 @Component({
   selector: 'app-roulette-hub',
-  imports: [],
+  imports: [LottiePlayer],
   templateUrl: './roulette-hub.html',
   styleUrl: './roulette-hub.scss',
 })
