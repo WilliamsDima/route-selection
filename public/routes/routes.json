@@ -99,7 +99,7 @@
   },
   {
     "id": 15,
-    "name": "Большое село - через лом",
+    "name": "Большое село - через Лом",
     "gpxFile": "routes/15.gpx",
     "distKm": 135,
     "type": "long"
@@ -148,7 +148,7 @@
   },
   {
     "id": 22,
-    "name": "ЯР - Бройлер",
+    "name": "ЯР Бройлер",
     "gpxFile": "routes/22.gpx",
     "distKm": 50,
     "type": "short"
