@@ -35,7 +35,7 @@
     background: var(--color-accent);
     color: var(--color-on-accent);
 
-    &:hover {
+    @include hover {
       background: var(--color-accent-hover);
     }
   }
@@ -45,7 +45,7 @@
     border-color: var(--color-border-strong);
     color: var(--color-text);
 
-    &:hover {
+    @include hover {
       background: var(--color-surface-hover);
       border-color: var(--color-text-muted);
     }

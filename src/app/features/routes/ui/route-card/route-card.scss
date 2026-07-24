@@ -20,7 +20,7 @@
     border-color var(--transition-fast),
     background var(--transition-fast);
 
-  &:hover {
+  @include hover {
     border-color: var(--color-accent);
     background: var(--color-surface-hover);
   }
