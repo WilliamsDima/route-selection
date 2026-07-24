@@ -7,4 +7,5 @@ export interface WheelSegment {
   labelX: number;
   labelY: number;
   labelRotation: number;
+  mid: number;
 }

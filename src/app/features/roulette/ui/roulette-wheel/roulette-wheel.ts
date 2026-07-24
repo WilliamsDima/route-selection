@@ -14,6 +14,7 @@ import {
   computeSpinTarget,
   indexUnderPointer,
   labelFontSize,
+  resolveLabelRotation,
 } from '../wheel.util';
 
 @Component({
@@ -42,9 +43,17 @@ export class RouletteWheel implements OnDestroy {
   protected readonly fontSize = computed(() => labelFontSize(this.routes().length));
   protected readonly segments = computed(() => buildSegments(this.routes()));
 
+  protected readonly renderSegments = computed(() => {
+    const rotation = this.rotation();
+    return this.segments().map((s) => ({
+      ...s,
+      labelRotation: resolveLabelRotation(s.mid, rotation),
+    }));
+  });
+
   protected readonly activeSegment = computed(() => {
     const i = this.activeIndex();
-    const segs = this.segments();
+    const segs = this.renderSegments();
     return i >= 0 && i < segs.length ? segs[i] : null;
   });
 

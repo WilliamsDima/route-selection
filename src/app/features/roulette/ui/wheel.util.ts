@@ -44,6 +44,10 @@ export function labelFontSize(count: number): number {
   if (count <= 14) return 3.2;
   return 2.7;
 }
+export function resolveLabelRotation(mid: number, wheelRotation: number): number {
+  const screenAngle = (((mid + wheelRotation) % 360) + 360) % 360;
+  return screenAngle <= 180 ? mid - 90 : mid + 90;
+}
 
 export function buildSegments(routes: BikeRoute[]): WheelSegment[] {
   const n = routes.length;
@@ -77,7 +81,8 @@ export function buildSegments(routes: BikeRoute[]): WheelSegment[] {
       label: truncate(route.name, maxChars),
       labelX: label.x,
       labelY: label.y,
-      labelRotation: mid <= 180 ? mid - 90 : mid + 90,
+      labelRotation: resolveLabelRotation(mid, 0),
+      mid,
     };
   });
 }
@@ -93,6 +98,6 @@ export function computeSpinTarget(from: number, winner: number, count: number): 
   const seg = 360 / count;
   const winnerMid = winner * seg + seg / 2;
   const targetMod = (360 - (winnerMid % 360)) % 360;
-  const delta = ((targetMod - (from % 360)) + 360) % 360;
+  const delta = (targetMod - (from % 360) + 360) % 360;
   return from + FULL_SPINS * 360 + delta;
 }
