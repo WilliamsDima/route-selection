@@ -36,7 +36,7 @@
   },
   {
     "id": 6,
-    "name": "Восильково",
+    "name": "Васильково",
     "gpxFile": "routes/6.gpx",
     "distKm": 50,
     "type": "short"
@@ -155,7 +155,7 @@
   },
   {
     "id": 23,
-    "name": "Судовурфь",
+    "name": "Судоверфь",
     "gpxFile": "routes/23.gpx",
     "distKm": 25,
     "type": "short"
