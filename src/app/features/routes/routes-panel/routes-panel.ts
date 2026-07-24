@@ -1,5 +1,9 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { BikeRoute } from '../../../core/models/bike-route';
+import {
+  BikeRoute,
+  BikeRouteType,
+  BIKE_ROUTE_TYPE_FILTER_LABELS,
+} from '../../../core/models/bike-route';
 import { RouteFacade, TypeFilter } from '../data-access/route-facade';
 import { RouteList } from '../ui/route-list/route-list';
 import { Chip } from '../../../shared/components/chip/chip';
@@ -26,9 +30,9 @@ export class RoutesPanel {
 
   protected readonly typeButtons: ReadonlyArray<{ value: TypeFilter; label: string }> = [
     { value: 'all', label: 'Все' },
-    { value: 'short', label: 'Короткие' },
-    { value: 'long', label: 'Длинные' },
-    { value: 'big', label: 'Большие' },
+    ...(Object.entries(BIKE_ROUTE_TYPE_FILTER_LABELS) as [BikeRouteType, string][]).map(
+      ([value, label]) => ({ value, label }),
+    ),
   ];
 
   toggle(): void {

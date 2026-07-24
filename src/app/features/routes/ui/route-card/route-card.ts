@@ -1,11 +1,5 @@
 import { Component, computed, input } from '@angular/core';
-import { BikeRoute, BikeRouteType } from '../../../../core/models/bike-route';
-
-const TYPE_LABELS: Record<BikeRouteType, string> = {
-  short: 'Короткий',
-  long: 'Длинный',
-  big: 'Большой',
-};
+import { BikeRoute, BIKE_ROUTE_TYPE_LABELS } from '../../../../core/models/bike-route';
 
 @Component({
   selector: 'app-route-card',
@@ -18,5 +12,5 @@ export class RouteCard {
   readonly active = input(false);
   readonly disabled = input(false);
 
-  protected readonly typeLabel = computed(() => TYPE_LABELS[this.route().type]);
+  protected readonly typeLabel = computed(() => BIKE_ROUTE_TYPE_LABELS[this.route().type]);
 }
