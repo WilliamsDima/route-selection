@@ -23,7 +23,11 @@
         </app-chip>
 
         <div class="panel__scroll">
-          <app-route-list [routes]="routes()" />
+          <app-route-list
+            [routes]="routes()"
+            [activeId]="activeRouteId()"
+            (select)="selectRoute($event)"
+          />
         </div>
       </div>
     </div>

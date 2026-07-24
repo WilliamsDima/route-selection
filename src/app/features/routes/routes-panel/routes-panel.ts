@@ -1,4 +1,5 @@
 import { Component, computed, inject, signal } from '@angular/core';
+import { BikeRoute } from '../../../core/models/bike-route';
 import { RouteFacade, TypeFilter } from '../data-access/route-facade';
 import { RouteList } from '../ui/route-list/route-list';
 import { Chip } from '../../../shared/components/chip/chip';
@@ -18,6 +19,7 @@ export class RoutesPanel {
   protected readonly activeType = this.facade.typeFilter;
   protected readonly sortDir = this.facade.sortDir;
   protected readonly count = computed(() => this.facade.filteredRoutes().length);
+  protected readonly activeRouteId = computed(() => this.facade.selectedRoute()?.id ?? null);
 
   protected readonly expanded = signal(false);
 
@@ -42,5 +44,9 @@ export class RoutesPanel {
 
   toggleSort(): void {
     this.facade.toggleSort();
+  }
+
+  selectRoute(route: BikeRoute): void {
+    this.facade.selectRoute(route);
   }
 }

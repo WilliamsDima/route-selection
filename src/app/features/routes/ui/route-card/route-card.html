@@ -1,4 +1,4 @@
-<article class="card">
+<article class="card" [class.card--active]="active()">
   <div class="card__main">
     <h3 class="card__title">{{ route().name }}</h3>
     <span class="card__badge" [class]="'card__badge--' + route().type">

@@ -1,6 +1,10 @@
 <div class="route-list">
   @for (route of routes(); track route.id) {
-    <app-route-card [route]="route" />
+    <app-route-card
+      [route]="route"
+      [active]="route.id === activeId()"
+      (click)="select.emit(route)"
+    />
   } @empty {
     <p class="route-list__empty">Маршрутов пока нет</p>
   }

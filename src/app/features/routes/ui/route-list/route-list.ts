@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { BikeRoute } from '../../../../core/models/bike-route';
 import { RouteCard } from '../route-card/route-card';
 
@@ -10,4 +10,7 @@ import { RouteCard } from '../route-card/route-card';
 })
 export class RouteList {
   readonly routes = input<BikeRoute[]>([]);
+  readonly activeId = input<number | null>(null);
+
+  readonly select = output<BikeRoute>();
 }

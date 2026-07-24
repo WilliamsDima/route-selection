@@ -1,7 +1,7 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouteService } from '../../../core/services/route/route';
-import { BikeRouteType } from '../../../core/models/bike-route';
+import { BikeRoute, BikeRouteType } from '../../../core/models/bike-route';
 
 export type TypeFilter = BikeRouteType | 'all';
 export type SortDirection = 'asc' | 'desc';
@@ -20,6 +20,9 @@ export class RouteFacade {
 
   private readonly _sortDir = signal<SortDirection>('asc');
   readonly sortDir = this._sortDir.asReadonly();
+
+  private readonly _selectedRoute = signal<BikeRoute | null>(null);
+  readonly selectedRoute = this._selectedRoute.asReadonly();
 
   readonly filteredRoutes = computed(() => {
     const term = this._search().trim().toLowerCase();
@@ -42,5 +45,9 @@ export class RouteFacade {
 
   toggleSort(): void {
     this._sortDir.update((dir) => (dir === 'asc' ? 'desc' : 'asc'));
+  }
+
+  selectRoute(route: BikeRoute | null): void {
+    this._selectedRoute.set(route);
   }
 }

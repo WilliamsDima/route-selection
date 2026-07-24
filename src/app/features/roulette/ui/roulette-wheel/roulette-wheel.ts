@@ -1,5 +1,6 @@
-import { Component, computed, input, OnDestroy, signal } from '@angular/core';
+import { Component, computed, effect, inject, input, OnDestroy, signal } from '@angular/core';
 import { BikeRoute } from '../../../../core/models/bike-route';
+import { RouteFacade } from '../../../routes';
 import { Button } from '../../../../shared/components/button/button';
 import { RouletteSegment } from '../roulette-segment/roulette-segment';
 import { RouletteHub } from '../roulette-hub/roulette-hub';
@@ -22,11 +23,13 @@ import {
   styleUrl: './roulette-wheel.scss',
 })
 export class RouletteWheel implements OnDestroy {
+  private readonly facade = inject(RouteFacade);
+
   readonly routes = input<BikeRoute[]>([]);
 
   protected readonly rotation = signal(0);
   protected readonly spinning = signal(false);
-  protected readonly selected = signal<BikeRoute | null>(null);
+  protected readonly selected = this.facade.selectedRoute;
   protected readonly activeIndex = signal(-1);
   protected readonly spinDurationMs = signal(DEFAULT_SPIN_DURATION_MS);
 
@@ -47,6 +50,16 @@ export class RouletteWheel implements OnDestroy {
 
   protected readonly spinDurationSec = computed(() => this.spinDurationMs() / 1000);
 
+  constructor() {
+    effect(() => {
+      const route = this.selected();
+      if (this.spinning() || !route) return;
+
+      const idx = this.routes().findIndex((r) => r.id === route.id);
+      if (idx !== -1) this.activeIndex.set(idx);
+    });
+  }
+
   onDurationInput(event: Event): void {
     const seconds = (event.target as HTMLInputElement).valueAsNumber;
     const clamped = Math.min(Math.max(seconds, this.minSpinDurationSec), this.maxSpinDurationSec);
@@ -61,7 +74,7 @@ export class RouletteWheel implements OnDestroy {
     const from = this.rotation();
     const to = computeSpinTarget(from, winner, routes.length);
 
-    this.selected.set(null);
+    this.facade.selectRoute(null);
     this.spinning.set(true);
 
     const durationMs = this.spinDurationMs();
@@ -80,7 +93,7 @@ export class RouletteWheel implements OnDestroy {
         this.rotation.set(to);
         this.activeIndex.set(winner);
         this.spinning.set(false);
-        this.selected.set(routes[winner]);
+        this.facade.selectRoute(routes[winner]);
       }
     };
     this.rafId = requestAnimationFrame(animate);
