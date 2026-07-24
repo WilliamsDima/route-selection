@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 import { RouteMap } from './route-map';
 
@@ -8,12 +9,13 @@ describe('RouteMap', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouteMap]
-    })
-    .compileComponents();
+      imports: [RouteMap],
+      providers: [provideHttpClient()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RouteMap);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('gpxFile', 'routes/test.gpx');
     fixture.detectChanges();
   });
 

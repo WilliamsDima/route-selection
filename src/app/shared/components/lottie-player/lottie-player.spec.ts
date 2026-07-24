@@ -14,6 +14,7 @@ describe('LottiePlayer', () => {
 
     fixture = TestBed.createComponent(LottiePlayer);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('name', 'loader');
     fixture.detectChanges();
   });
 

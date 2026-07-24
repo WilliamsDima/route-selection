@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 import { RoutesPanel } from './routes-panel';
 
@@ -8,9 +9,9 @@ describe('RoutesPanel', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RoutesPanel]
-    })
-    .compileComponents();
+      imports: [RoutesPanel],
+      providers: [provideHttpClient()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RoutesPanel);
     component = fixture.componentInstance;
