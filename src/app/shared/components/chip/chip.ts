@@ -12,4 +12,5 @@ import { Component, input } from '@angular/core';
 export class Chip {
   readonly active = input(false);
   readonly fullWidth = input(false);
+  readonly disabled = input(false);
 }

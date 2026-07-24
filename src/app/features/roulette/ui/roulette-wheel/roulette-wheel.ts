@@ -30,7 +30,7 @@ export class RouletteWheel implements OnDestroy {
   readonly routes = input<BikeRoute[]>([]);
 
   protected readonly rotation = signal(0);
-  protected readonly spinning = signal(false);
+  protected readonly spinning = this.facade.spinning;
   protected readonly selected = this.facade.selectedRoute;
   protected readonly activeIndex = signal(-1);
   protected readonly spinDurationMs = signal(DEFAULT_SPIN_DURATION_MS);
@@ -101,7 +101,7 @@ export class RouletteWheel implements OnDestroy {
     const to = computeSpinTarget(from, winner, routes.length);
 
     this.facade.selectRoute(null);
-    this.spinning.set(true);
+    this.facade.setSpinning(true);
 
     const durationMs = this.spinDurationMs();
     const start = performance.now();
@@ -118,7 +118,7 @@ export class RouletteWheel implements OnDestroy {
       } else {
         this.rotation.set(to);
         this.activeIndex.set(winner);
-        this.spinning.set(false);
+        this.facade.setSpinning(false);
         this.facade.selectRoute(routes[winner]);
       }
     };

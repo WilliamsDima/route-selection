@@ -7,17 +7,25 @@
   <div class="panel__collapse">
     <div class="panel__collapse-inner">
       <div class="panel__body">
-        <app-search-input placeholder="Поиск маршрута…" (search)="onSearch($event)" />
+        <app-search-input
+          placeholder="Поиск маршрута…"
+          [disabled]="spinning()"
+          (search)="onSearch($event)"
+        />
 
         <div class="panel__filters">
           @for (btn of typeButtons; track btn.value) {
-            <app-chip [active]="activeType() === btn.value" (click)="selectType(btn.value)">
+            <app-chip
+              [active]="activeType() === btn.value"
+              [disabled]="spinning()"
+              (click)="selectType(btn.value)"
+            >
               {{ btn.label }}
             </app-chip>
           }
         </div>
 
-        <app-chip [fullWidth]="true" (click)="toggleSort()">
+        <app-chip [fullWidth]="true" [disabled]="spinning()" (click)="toggleSort()">
           По расстоянию
           <span class="panel__sort-arrow">{{ sortDir() === 'asc' ? '↑' : '↓' }}</span>
         </app-chip>
@@ -26,6 +34,7 @@
           <app-route-list
             [routes]="routes()"
             [activeId]="activeRouteId()"
+            [disabled]="spinning()"
             (select)="selectRoute($event)"
           />
         </div>

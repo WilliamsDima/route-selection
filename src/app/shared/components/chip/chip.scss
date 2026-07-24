@@ -35,6 +35,16 @@
     color: var(--color-text);
   }
 
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    @include hover {
+      border-color: var(--color-border);
+      color: var(--color-text-muted);
+    }
+  }
+
   &--active {
     background: var(--color-accent);
     border-color: var(--color-accent);

@@ -22,4 +22,9 @@
   &::placeholder {
     color: var(--color-text-muted);
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }

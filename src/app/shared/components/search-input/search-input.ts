@@ -10,6 +10,7 @@ import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 })
 export class SearchInput {
   readonly placeholder = input('');
+  readonly disabled = input(false);
 
   private readonly term$ = new Subject<string>();
 

@@ -18,6 +18,7 @@ export class RoutesPanel {
   protected readonly search = this.facade.search;
   protected readonly activeType = this.facade.typeFilter;
   protected readonly sortDir = this.facade.sortDir;
+  protected readonly spinning = this.facade.spinning;
   protected readonly count = computed(() => this.facade.filteredRoutes().length);
   protected readonly activeRouteId = computed(() => this.facade.selectedRoute()?.id ?? null);
 

@@ -16,6 +16,7 @@ const TYPE_LABELS: Record<BikeRouteType, string> = {
 export class RouteCard {
   readonly route = input.required<BikeRoute>();
   readonly active = input(false);
+  readonly disabled = input(false);
 
   protected readonly typeLabel = computed(() => TYPE_LABELS[this.route().type]);
 }

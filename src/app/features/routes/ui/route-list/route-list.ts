@@ -11,6 +11,7 @@ import { RouteCard } from '../route-card/route-card';
 export class RouteList {
   readonly routes = input<BikeRoute[]>([]);
   readonly activeId = input<number | null>(null);
+  readonly disabled = input(false);
 
   readonly select = output<BikeRoute>();
 }

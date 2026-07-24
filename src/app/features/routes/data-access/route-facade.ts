@@ -24,6 +24,9 @@ export class RouteFacade {
   private readonly _selectedRoute = signal<BikeRoute | null>(null);
   readonly selectedRoute = this._selectedRoute.asReadonly();
 
+  private readonly _spinning = signal(false);
+  readonly spinning = this._spinning.asReadonly();
+
   readonly filteredRoutes = computed(() => {
     const term = this._search().trim().toLowerCase();
     const type = this._typeFilter();
@@ -49,5 +52,9 @@ export class RouteFacade {
 
   selectRoute(route: BikeRoute | null): void {
     this._selectedRoute.set(route);
+  }
+
+  setSpinning(value: boolean): void {
+    this._spinning.set(value);
   }
 }
