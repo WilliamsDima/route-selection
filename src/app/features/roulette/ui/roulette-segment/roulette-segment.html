@@ -1,0 +1,17 @@
+<svg:path
+  [attr.d]="segment().path"
+  [attr.fill]="segment().color"
+  stroke="#ffffff"
+  stroke-width="0.4"
+/>
+<svg:text
+  class="label"
+  [attr.x]="segment().labelX"
+  [attr.y]="segment().labelY"
+  [attr.fill]="segment().textColor"
+  [attr.transform]="'rotate(' + segment().labelRotation + ' ' + segment().labelX + ' ' + segment().labelY + ')'"
+  text-anchor="middle"
+  dominant-baseline="middle"
+>
+  {{ segment().label }}
+</svg:text>

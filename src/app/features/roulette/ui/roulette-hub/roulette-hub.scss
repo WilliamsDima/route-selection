@@ -1,0 +1,55 @@
+@use 'abstracts' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+
+  padding: var(--space-sm);
+  border-radius: 50%;
+
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  overflow: hidden;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  animation: hub-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &__name {
+    font-size: rem(14);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text);
+  }
+
+  &__dist {
+    font-size: rem(13);
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+}
+
+.hint {
+  font-size: rem(13);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+@keyframes hub-pop {
+  from {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

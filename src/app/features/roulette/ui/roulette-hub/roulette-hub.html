@@ -1,0 +1,10 @@
+@if (route(); as r) {
+  <div class="result">
+    <span class="result__name">{{ r.name }}</span>
+    <span class="result__dist">{{ r.distKm }} км</span>
+  </div>
+} @else if (hasRoutes()) {
+  <span class="hint">{{ spinning() ? '…' : 'Крутите!' }}</span>
+} @else {
+  <span class="hint">Нет маршрутов</span>
+}

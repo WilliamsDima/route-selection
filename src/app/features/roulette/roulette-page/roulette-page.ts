@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RoutesPanel } from '../../routes';
+import { Component, inject } from '@angular/core';
+import { RouteFacade, RoutesPanel } from '../../routes';
 import { RouletteWheel } from '../ui/roulette-wheel/roulette-wheel';
 
 @Component({
@@ -8,4 +8,8 @@ import { RouletteWheel } from '../ui/roulette-wheel/roulette-wheel';
   templateUrl: './roulette-page.html',
   styleUrl: './roulette-page.scss',
 })
-export class RoulettePage {}
+export class RoulettePage {
+  private readonly facade = inject(RouteFacade);
+
+  protected readonly routes = this.facade.filteredRoutes;
+}

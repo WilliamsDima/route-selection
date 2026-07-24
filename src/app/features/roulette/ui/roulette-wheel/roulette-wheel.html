@@ -1,3 +1,30 @@
-<div class="wheel">
-  <span class="wheel__placeholder">Здесь будет рулетка</span>
+<div class="roulette">
+  <div class="roulette__wheel">
+    <div class="roulette__pointer"></div>
+
+    <div class="roulette__disc" [style.transform]="'rotate(' + rotation() + 'deg)'">
+      <svg viewBox="0 0 100 100" class="roulette__svg" [attr.font-size]="fontSize()">
+        @for (s of segments(); track s.index) {
+          <g appRouletteSegment [segment]="s"></g>
+        }
+
+        @if (activeSegment(); as s) {
+          <g [attr.transform]="'translate(50 50) scale(' + scale + ') translate(-50 -50)'">
+            <g appRouletteSegment [segment]="s"></g>
+          </g>
+        }
+      </svg>
+    </div>
+
+    <app-roulette-hub
+      class="roulette__hub"
+      [route]="selected()"
+      [spinning]="spinning()"
+      [hasRoutes]="routes().length > 0"
+    />
+  </div>
+
+  <app-button (click)="spin()" [disabled]="spinning() || routes().length === 0">
+    {{ spinning() ? 'Крутится…' : 'Крутить' }}
+  </app-button>
 </div>

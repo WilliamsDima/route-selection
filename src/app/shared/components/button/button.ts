@@ -13,6 +13,7 @@ export class Button {
   readonly variant = input<ButtonVariant>('primary');
   readonly link = input<string>();
   readonly type = input<'button' | 'submit'>('button');
+  readonly disabled = input(false);
 
   protected readonly classes = computed(() => `btn btn--${this.variant()}`);
 }

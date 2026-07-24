@@ -26,6 +26,11 @@
     border-color var(--transition-fast),
     color var(--transition-fast);
 
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
   &--primary {
     background: var(--color-accent);
     color: var(--color-on-accent);
