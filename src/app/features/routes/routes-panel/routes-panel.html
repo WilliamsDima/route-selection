@@ -17,7 +17,7 @@
           }
         </div>
 
-        <app-chip (click)="toggleSort()">
+        <app-chip [fullWidth]="true" (click)="toggleSort()">
           По расстоянию
           <span class="panel__sort-arrow">{{ sortDir() === 'asc' ? '↑' : '↓' }}</span>
         </app-chip>
