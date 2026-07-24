@@ -1,13 +1,14 @@
 <article class="card" [class.card--active]="active()">
-  <div class="card__main">
-    <h3 class="card__title">{{ route().name }}</h3>
+  <h3 class="card__title">{{ route().name }}</h3>
+
+  <div class="card__meta">
     <span class="card__badge" [class]="'card__badge--' + route().type">
       {{ typeLabel() }}
     </span>
-  </div>
 
-  <p class="card__dist">
-    <span class="card__dist-value">{{ route().distKm }}</span>
-    <span class="card__dist-unit">км</span>
-  </p>
+    <p class="card__dist">
+      <span class="card__dist-value">{{ route().distKm }}</span>
+      <span class="card__dist-unit">км</span>
+    </p>
+  </div>
 </article>
