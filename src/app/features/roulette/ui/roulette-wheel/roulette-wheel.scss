@@ -2,6 +2,7 @@
 
 :host {
   display: block;
+  width: 100%;
 }
 
 .roulette {
@@ -13,12 +14,12 @@
 
   &__wheel {
     position: relative;
-    width: min(84vw, rem(440));
+    width: min(100%, rem(440));
     aspect-ratio: 1;
     transition: width 0.5s ease;
 
     &--enlarged {
-      width: min(94vw, rem(640));
+      width: min(100%, rem(640));
     }
   }
 
@@ -68,17 +69,22 @@
     box-shadow: var(--shadow-md);
   }
 
+  // Хаб круглый (overflow: hidden), поэтому подпись держим в квадрате,
+  // вписанном в окружность (ширина ~70% диаметра, отступ снизу),
+  // иначе длинное название обрезается дугой хаба раньше, чем сработает ellipsis.
   &__caption {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 14%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 400;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 70%;
     padding: var(--space-xs);
+    border-radius: var(--radius-sm);
 
     background: rgb(255 255 255 / 82%);
     text-align: center;
@@ -106,7 +112,7 @@
     flex-direction: column;
     align-items: center;
     gap: var(--space-xs);
-    width: min(84vw, rem(440));
+    width: min(100%, rem(440));
   }
 
   &__duration-label {
