@@ -69,22 +69,20 @@
     box-shadow: var(--shadow-md);
   }
 
-  // Хаб круглый (overflow: hidden), поэтому подпись держим в квадрате,
-  // вписанном в окружность (ширина ~70% диаметра, отступ снизу),
-  // иначе длинное название обрезается дугой хаба раньше, чем сработает ellipsis.
   &__caption {
     position: absolute;
-    bottom: 14%;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 0;
+    left: 0;
     z-index: 400;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 70%;
+    justify-content: center;
+    width: 100%;
+    height: 34%;
     padding: var(--space-xs);
-    border-radius: var(--radius-sm);
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
 
     background: rgb(255 255 255 / 82%);
     text-align: center;
@@ -99,12 +97,20 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 100%;
+
+    @include respond-to('md') {
+      font-size: rem(16);
+    }
   }
 
   &__caption-dist {
     font-size: rem(11);
     font-weight: 600;
     color: var(--color-accent);
+
+    @include respond-to('md') {
+      font-size: rem(14);
+    }
   }
 
   &__duration {
