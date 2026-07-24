@@ -1,5 +1,6 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { catchError, of } from 'rxjs';
 import { RouteService } from '../../../core/services/route/route';
 import { BikeRoute, BikeRouteType } from '../../../core/models/bike-route';
 
@@ -10,7 +11,15 @@ export type SortDirection = 'asc' | 'desc';
 export class RouteFacade {
   private readonly routeService = inject(RouteService);
 
-  readonly routes = toSignal(this.routeService.getRoutes(), { initialValue: [] });
+  readonly routes = toSignal(
+    this.routeService.getRoutes().pipe(
+      catchError((error) => {
+        console.error('Не удалось загрузить маршруты:', error);
+        return of<BikeRoute[]>([]);
+      }),
+    ),
+    { initialValue: [] },
+  );
 
   private readonly _search = signal('');
   readonly search = this._search.asReadonly();

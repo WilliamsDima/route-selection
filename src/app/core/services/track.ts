@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { map, Observable, shareReplay } from 'rxjs';
+import { catchError, map, Observable, of, shareReplay } from 'rxjs';
 import { ApiService } from './api';
 import { parseGpx, TrackPoint } from './gpx-parser';
 
@@ -12,7 +12,14 @@ export class TrackService {
     let track$ = this.cache.get(gpxFile);
 
     if (!track$) {
-      track$ = this.api.getText(gpxFile).pipe(map(parseGpx), shareReplay(1));
+      track$ = this.api.getText(gpxFile).pipe(
+        map(parseGpx),
+        catchError((error) => {
+          console.error(`Не удалось загрузить трек ${gpxFile}:`, error);
+          return of<TrackPoint[]>([]);
+        }),
+        shareReplay(1),
+      );
       this.cache.set(gpxFile, track$);
     }
 
