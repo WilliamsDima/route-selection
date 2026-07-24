@@ -7,7 +7,9 @@ const LABEL_RADIUS = 30;
 const FULL_SPINS = 5;
 
 export const ACTIVE_SCALE = 1.08;
-export const SPIN_DURATION_MS = 5000;
+export const MIN_SPIN_DURATION_MS = 5000;
+export const MAX_SPIN_DURATION_MS = 60000;
+export const DEFAULT_SPIN_DURATION_MS = MIN_SPIN_DURATION_MS;
 
 function polar(radius: number, angleDeg: number): { x: number; y: number } {
   const rad = (angleDeg * Math.PI) / 180;

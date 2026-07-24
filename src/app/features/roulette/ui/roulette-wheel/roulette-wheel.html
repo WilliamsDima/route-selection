@@ -29,6 +29,20 @@
     </div>
   </div>
 
+  <label class="roulette__duration">
+    <span class="roulette__duration-label">Время вращения: {{ spinDurationSec() }} с</span>
+    <input
+      type="range"
+      class="roulette__duration-input"
+      [min]="minSpinDurationSec"
+      [max]="maxSpinDurationSec"
+      [step]="1"
+      [value]="spinDurationSec()"
+      [disabled]="spinning()"
+      (input)="onDurationInput($event)"
+    />
+  </label>
+
   <app-button (click)="spin()" [disabled]="spinning() || routes().length === 0">
     {{ spinning() ? 'Крутится…' : 'Крутить' }}
   </app-button>

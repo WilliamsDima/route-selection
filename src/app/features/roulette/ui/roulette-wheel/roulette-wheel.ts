@@ -6,7 +6,9 @@ import { RouletteHub } from '../roulette-hub/roulette-hub';
 import { RouteMap } from '../route-map/route-map';
 import {
   ACTIVE_SCALE,
-  SPIN_DURATION_MS,
+  DEFAULT_SPIN_DURATION_MS,
+  MAX_SPIN_DURATION_MS,
+  MIN_SPIN_DURATION_MS,
   buildSegments,
   computeSpinTarget,
   indexUnderPointer,
@@ -26,8 +28,11 @@ export class RouletteWheel implements OnDestroy {
   protected readonly spinning = signal(false);
   protected readonly selected = signal<BikeRoute | null>(null);
   protected readonly activeIndex = signal(-1);
+  protected readonly spinDurationMs = signal(DEFAULT_SPIN_DURATION_MS);
 
   protected readonly scale = ACTIVE_SCALE;
+  protected readonly minSpinDurationSec = MIN_SPIN_DURATION_MS / 1000;
+  protected readonly maxSpinDurationSec = MAX_SPIN_DURATION_MS / 1000;
 
   private rafId = 0;
 
@@ -40,6 +45,14 @@ export class RouletteWheel implements OnDestroy {
     return i >= 0 && i < segs.length ? segs[i] : null;
   });
 
+  protected readonly spinDurationSec = computed(() => this.spinDurationMs() / 1000);
+
+  onDurationInput(event: Event): void {
+    const seconds = (event.target as HTMLInputElement).valueAsNumber;
+    const clamped = Math.min(Math.max(seconds, this.minSpinDurationSec), this.maxSpinDurationSec);
+    this.spinDurationMs.set(clamped * 1000);
+  }
+
   spin(): void {
     const routes = this.routes();
     if (this.spinning() || routes.length === 0) return;
@@ -51,9 +64,10 @@ export class RouletteWheel implements OnDestroy {
     this.selected.set(null);
     this.spinning.set(true);
 
+    const durationMs = this.spinDurationMs();
     const start = performance.now();
     const animate = (now: number) => {
-      const t = Math.min((now - start) / SPIN_DURATION_MS, 1);
+      const t = Math.min((now - start) / durationMs, 1);
       const eased = 1 - Math.pow(1 - t, 4);
       const value = from + (to - from) * eased;
 
